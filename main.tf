@@ -11,7 +11,7 @@ module "runbook1" {
   resource_group_name     = var.resource_group_name
   location                = var.location
   automation_account_name = var.automation_account_name
-  runtime_environment_id = var.runtime_environment_id
+  runtime_environment_id = module.automation_account.runtime_environment_id
   runbook_name            = "AllResources"
   script_path             = "${path.module}/Scripts/all_resources_report.ps1"
   schedule_name           = "schedule1"
@@ -26,6 +26,7 @@ module "runbook2" {
   resource_group_name     = var.resource_group_name
   location                = var.location
   automation_account_name = var.automation_account_name
+  runtime_environment_id = module.automation_account.runtime_environment_id
   runbook_name            = "BackupReport"
   script_path             = "${path.module}/Scripts/backup_report.ps1"
   schedule_name           = "schedule2"
