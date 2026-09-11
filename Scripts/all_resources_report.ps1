@@ -32,10 +32,12 @@ foreach ($subscription in $subscriptions) {
 $csvPath = "Azure_All_Resources.csv"
 $script:resourceData | Export-Csv -Path $csvPath -Force -NoTypeInformation -Encoding UTF8
   
-# Upload to Azure Storage using SPN with Storage Blob Data Contributor role
+# Upload to Azure Storage using SPN with Storage Blob Data Contributor role 
 $storageAccountName = "statm4finopsdatatstwe001"
 $containerName = "finops-data"
 $blobName = [System.IO.Path]::GetFileName($csvPath)
+
+# upload
  
 # Create storage context using connected account (SPN must have Storage Blob Data Contributor role)
 $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -UseConnectedAccount
