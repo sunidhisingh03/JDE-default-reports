@@ -13,3 +13,8 @@ variable "automation_account_name" {
 variable "tags" {
   type = map(string)
 }
+
+variable "runtime_environment_id" {
+  description = "PowerShell 7.4 Runtime Environment ID"
+  type        = string
+}
