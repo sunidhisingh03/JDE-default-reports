@@ -8,5 +8,5 @@ resource "azurerm_automation_account" "account" {
   identity {
     type = "SystemAssigned"
   }
-  
+  public_network_access_enabled = false
 }
