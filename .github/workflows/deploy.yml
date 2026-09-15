@@ -35,33 +35,33 @@ jobs:
           Set-AzContext -SubscriptionId $subscriptionId
         
 
-      # - name: Run PowerShell Script
-      #   shell: pwsh
-      #   run: | 
-      #     ./create_rg.ps1
+      - name: Run PowerShell Script
+        shell: pwsh
+        run: | 
+          ./create_rg.ps1
       
+        env:
+          AZURE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
+          AZURE_TENANT_ID: ${{ secrets.TENANT_ID }} 
+
+      # - name: Terraform Plan
+      #   run: |
+      #     terraform init
+      #     terraform plan
       #   env:
-      #     AZURE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-      #     AZURE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-      #     AZURE_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
-      #     AZURE_TENANT_ID: ${{ secrets.TENANT_ID }} 
+      #     ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      #     ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      #     ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
+      #     ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
 
-      - name: Terraform Plan
-        run: |
-          terraform init
-          terraform plan
-        env:
-          ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
-          ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
-
-      - name: Terraform Init and Apply
-        run: |
-          terraform init
-          terraform apply -auto-approve
-        env:
-          ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
-          ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
+      # - name: Terraform Init and Apply
+      #   run: |
+      #     terraform init
+      #     terraform apply -auto-approve
+      #   env:
+      #     ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      #     ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      #     ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
+      #     ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
