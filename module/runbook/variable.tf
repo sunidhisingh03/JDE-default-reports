@@ -42,7 +42,7 @@ variable "tags" {
   type = map(string)
 }
 
-variable "runtime_environment_id" {
-  description = "PowerShell 7.4 Runtime Environment ID"
-  type        = string
-}
+# variable "runtime_environment_id" {
+#   description = "PowerShell 7.4 Runtime Environment ID"
+#   type        = string
+# }
