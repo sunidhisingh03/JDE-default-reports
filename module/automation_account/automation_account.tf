@@ -12,10 +12,10 @@ resource "azurerm_automation_account" "account" {
 
 }
 
-resource "azurerm_automation_runtime_environment" "ps74" {
-  name                  = "PowerShell74"
-  automation_account_id = azurerm_automation_account.account.id
-  location            = var.location
-  runtime_language = "PowerShell"
-  runtime_version  = "7.4"
-}
+# resource "azurerm_automation_runtime_environment" "ps74" {
+#   name                  = "PowerShell74"
+#   automation_account_id = azurerm_automation_account.account.id
+#   location            = var.location
+#   runtime_language = "PowerShell"
+#   runtime_version  = "7.4"
+# }

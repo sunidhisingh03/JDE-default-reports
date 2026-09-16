@@ -6,7 +6,7 @@ resource "azurerm_automation_runbook" "runbook" {
   automation_account_name = var.automation_account_name
   log_verbose             = true
   log_progress            = true
-  runbook_type            = "PowerShell"
+  runbook_type            = "PowerShell74"
   content                 = templatefile(var.script_path, {})
   
   timeouts {
